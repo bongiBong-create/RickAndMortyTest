@@ -1,0 +1,27 @@
+.name {
+  margin-bottom: 56px;
+  font-family: var(--font-fira);
+  font-weight: 400;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mont);
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(118, 118, 118, 1);
+}
+
+.active {
+  color: green;
+}
+
+.dead {
+  color: red;
+}
+
+.image {
+  margin-bottom: 20px;
+}
