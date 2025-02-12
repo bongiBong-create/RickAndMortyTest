@@ -1,30 +1,15 @@
-import { useEffect, useState } from "react";
 import { CharacterItem } from "../../components/CharacterItem";
-import { ICharacters } from "../../interfaces/ICharacter";
-import { getCharacterById } from "../../api";
-import { Link, useParams } from "react-router-dom";
+import { useCharacter } from "./hook";
 
 import styles from "./index.module.css";
 
 export const Character = () => {
-  const [character, setCharacter] = useState<ICharacters | null>(null);
-  const { id } = useParams();
-
-  useEffect(() => {
-    const fetch = async () => {
-      const response = await getCharacterById(id);
-
-      setCharacter(response);
-    };
-
-    fetch();
-  }, []);
+  const { character } = useCharacter();
 
   return (
     <>
-      <Link to={`/`}>На главную</Link>
       <main className="main">
-        <section className="character">
+        <section className={styles.character}>
           <article className={styles.item}>
             {character && (
               <CharacterItem

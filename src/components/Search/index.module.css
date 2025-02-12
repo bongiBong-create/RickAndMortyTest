@@ -1,0 +1,18 @@
+.search {
+  max-width: 626px;
+  width: 100%;
+  margin-bottom: 13px;
+}
+
+.input {
+  width: 100%;
+  padding: 19px 25px;
+  color: rgba(101, 110, 194, 1);
+  font-size: 22px;
+  border: 0;
+  box-shadow: 0px 7px 12px 0px rgba(100, 100, 111, 0.2);
+}
+
+.input::placeholder {
+  color: rgba(101, 110, 194, 1);
+}
