@@ -1,6 +1,6 @@
 .list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 518px));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 518px));
   justify-content: center;
   gap: 20px;
 }

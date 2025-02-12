@@ -3,6 +3,7 @@
 }
 
 .item {
+  padding-inline: 20px;
   max-width: 500px;
   margin-inline: auto;
   display: flex;
