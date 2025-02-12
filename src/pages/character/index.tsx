@@ -1,12 +1,10 @@
 import { CharacterItem } from "../../components/CharacterItem";
-import { useParams } from "react-router-dom";
 import { useCharacter } from "./hook";
 
 import styles from "./index.module.css";
 
 export const Character = () => {
-  const { id } = useParams();
-  const { character } = useCharacter(id);
+  const { character } = useCharacter();
 
   return (
     <>

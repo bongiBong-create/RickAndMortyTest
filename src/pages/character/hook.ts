@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { getCharacterById } from "../../api";
+import { useParams } from "react-router-dom";
 import { ICharacters } from "../../interfaces/ICharacter";
 
-export const useCharacter = (id: string) => {
+export const useCharacter = () => {
+  const { id } = useParams()
 
   const [character, setCharacter] = useState<ICharacters | null>(null);
 
