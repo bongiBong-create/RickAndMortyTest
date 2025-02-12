@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { getCharacterById } from "../../api";
 import { ICharacters } from "../../interfaces/ICharacter";
 
-export const useCharacter = () => {
+export const useCharacter = (id: string) => {
 
   const [character, setCharacter] = useState<ICharacters | null>(null);
-  const { id } = useParams();
 
   useEffect(() => {
+
+    if (!id) return;
+
     const fetch = async () => {
       const response = await getCharacterById(id);
 

@@ -11,7 +11,7 @@ export const getCharactersBySearch = async (name: string) => {
   }
 }
 
-export const getCharacterById = async (id: string | undefined) => {
+export const getCharacterById = async (id: string) => {
   try {
     const response = await axios.get(`${URL_API}/${id}`)
 
