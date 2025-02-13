@@ -1,16 +1,18 @@
 import { CharacterItem } from "../../components/CharacterItem";
+import { Loader } from "../../components/Loader";
 import { useCharacter } from "./hook";
 
 import styles from "./index.module.css";
 
 export const Character = () => {
-  const { character } = useCharacter();
+  const { character, isLoading } = useCharacter();
 
   return (
     <>
-      <main className="main">
+      <main className={styles.main}>
         <section className={styles.character}>
           <article className={styles.item}>
+            {isLoading && <Loader />}
             {character && (
               <CharacterItem
                 image={character?.image}

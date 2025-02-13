@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IContext } from "../../interfaces/IContext";
 import { AppContext } from "../../app/context";
 import { getCharactersBySearch } from "../../api";
@@ -6,11 +6,16 @@ import { getCharactersBySearch } from "../../api";
 export const useList = () => {
   const { characters, searchCharacter, setCharacters } =
     useContext<IContext>(AppContext);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (searchCharacter.length < 4) {
+      setError(null)
       return;
     }
+
+    setError(null)
+    setCharacters([])
 
     const debounce = setTimeout(async () => {
       try {
@@ -21,6 +26,7 @@ export const useList = () => {
         setCharacters(response);
       } catch (e) {
         console.log(e);
+        setError("Введите корректного персонажа")
       }
     }, 500);
 
@@ -28,6 +34,7 @@ export const useList = () => {
   }, [searchCharacter]);
 
   return {
-    characters
+    characters,
+    error
   }
 }

@@ -6,6 +6,7 @@ import { ICharacters } from "../../interfaces/ICharacter";
 export const useCharacter = () => {
   const { id } = useParams()
 
+  const [isLoading, setLoading] = useState<boolean>(false);
   const [character, setCharacter] = useState<ICharacters | null>(null);
 
   useEffect(() => {
@@ -13,9 +14,17 @@ export const useCharacter = () => {
     if (!id) return;
 
     const fetch = async () => {
-      const response = await getCharacterById(id);
+      try {
+        setLoading(true);
+        const response = await getCharacterById(id);
 
-      setCharacter(response);
+        setCharacter(response);
+        setLoading(false)
+      } catch (e) {
+        console.log(e)
+      } finally {
+        setLoading(false)
+      }
     };
 
     fetch();
@@ -24,5 +33,6 @@ export const useCharacter = () => {
   return {
     character,
     id,
+    isLoading
   }
 }
